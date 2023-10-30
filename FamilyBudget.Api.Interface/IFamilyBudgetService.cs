@@ -11,6 +11,7 @@ namespace FamilyBudget.Api.Interface
 {
     public interface IFamilyBudgetService
     {
-        Task<IEnumerable<BudgetCategoryType>> GetBudgetCategoryType(int? budgetCategoryTypeId);
+        Task<IEnumerable<BudgetCategoryType>> BudgetCategoryTypeGet(int? budgetCategoryTypeId);
+        Task<int> BudgetCategoryTypeInsert(string budgetCategoryTypeName);
     }
 }

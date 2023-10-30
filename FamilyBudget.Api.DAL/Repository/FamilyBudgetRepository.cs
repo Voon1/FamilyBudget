@@ -32,7 +32,7 @@ namespace FamilyBudget.Api.DAL
         /// </summary>
         /// <param name="budgetCategoryTypeId"></param>
         /// <returns></returns>
-        public async Task<IEnumerable<BudgetCategoryType>> GetBudgetCategoryType(int? budgetCategoryTypeId = null)
+        public async Task<IEnumerable<BudgetCategoryType>> BudgetCategoryTypeGet(int? budgetCategoryTypeId = null)
         {
             using (var conn = _context.CreateConnection())
             {
@@ -48,6 +48,27 @@ namespace FamilyBudget.Api.DAL
                     commandType: System.Data.CommandType.StoredProcedure
                     );
                 return budgetCategoryType;
+            }
+        }
+
+
+        /// <summary>
+        /// Method return CategoryTypes or categpry type if provided budgetCategoryTypeId
+        /// </summary>
+        /// <param name="budgetCategoryTypeId"></param>
+        /// <returns></returns>
+        public async Task<int> BudgetCategoryTypeInsert(string budgetCategoryTypeName)
+        {
+            using (var conn = _context.CreateConnection())
+            {
+                var spName = "pr_BudgetCategoryTypeInsert";
+                var spParameters = new DynamicParameters();
+                spParameters.Add("BudgetCategoryTypeName", budgetCategoryTypeName);
+
+                var affectedRows = await conn.QueryFirstAsync<int>(spName, spParameters,
+                    commandType: System.Data.CommandType.StoredProcedure
+                    );
+                return affectedRows;
             }
         }
     }

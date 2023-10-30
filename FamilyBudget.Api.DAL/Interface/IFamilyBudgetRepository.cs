@@ -9,6 +9,7 @@ namespace FamilyBudget.Api.DAL
 {
     public interface IFamilyBudgetRepository
     {
-        public Task<IEnumerable<BudgetCategoryType>> GetBudgetCategoryType(int? budgetCategoryTypeId);
+        public Task<IEnumerable<BudgetCategoryType>> BudgetCategoryTypeGet(int? budgetCategoryTypeId);
+        public Task<int> BudgetCategoryTypeInsert(string BudgetCategoryTypeName);
     }
 }

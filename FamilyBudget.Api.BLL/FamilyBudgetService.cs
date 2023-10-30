@@ -15,9 +15,15 @@ namespace FamilyBudget.Api.BLL
 
         }
 
-        public async Task<IEnumerable<BudgetCategoryType>> GetBudgetCategoryType(int? budgetCategoryTypeId)
+        public async Task<IEnumerable<BudgetCategoryType>> BudgetCategoryTypeGet(int? budgetCategoryTypeId)
         {
-            var type = _familyBudgetRepository.GetBudgetCategoryType(budgetCategoryTypeId);
+            var type = _familyBudgetRepository.BudgetCategoryTypeGet(budgetCategoryTypeId);
+            return await type;
+        }
+
+        public async Task<int> BudgetCategoryTypeInsert(string budgetCategoryTypeName)
+        {
+            var type = _familyBudgetRepository.BudgetCategoryTypeInsert(budgetCategoryTypeName);
             return await type;
         }
     }

@@ -17,11 +17,16 @@ namespace FamilyBudget.Api.Controllers
             this._Service = Service;
         }
 
-        [HttpGet("BudgetCategoriesType", Name = "BudgetCategoryTypeGet")]
+        [HttpGet("BudgetCategoriesTypeGet", Name = "BudgetCategoryTypeGet")]
         public async Task<IEnumerable<BudgetCategoryType>> BudgetCategoryTypeGet(int? budgetCategoryTypeId)
         {
-            return await _Service.GetBudgetCategoryType(budgetCategoryTypeId);
+            return await _Service.BudgetCategoryTypeGet(budgetCategoryTypeId);
         }
 
+        [HttpPost("BudgetCategoriesTypeInsert", Name = "BudgetCategoryTypeInsert")]
+        public async Task<int> BudgetCategoryTypeInsert(string budgetCategoryTypeName)
+        {
+            return await _Service.BudgetCategoryTypeInsert(budgetCategoryTypeName);
+        }
     }
 }

@@ -5,7 +5,6 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-
 	SELECT BudgetCategoryTypeId, BudgetCategoryTypeName	 FROM BudgetCategoryType
 	WHERE (@BudgetCategoryTypeId IS NULL OR
 			BudgetCategoryTypeId = @BudgetCategoryTypeId)

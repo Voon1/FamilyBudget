@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FamilyBudget.Api.DAL\FamilyBudget.Api.DAL.csproj" />
+    <ProjectReference Include="..\FamilyBudget.Api.Interface\FamilyBudget.Api.Interface.csproj" />
+  </ItemGroup>
+
+</Project>

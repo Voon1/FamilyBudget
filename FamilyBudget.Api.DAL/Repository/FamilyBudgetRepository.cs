@@ -32,7 +32,7 @@ namespace FamilyBudget.Api.DAL
         /// </summary>
         /// <param name="budgetCategoryTypeId"></param>
         /// <returns></returns>
-        public async Task<IEnumerable<BudgetCategoryType>> BudgetCategoryTypeGet(int? budgetCategoryTypeId = null)
+        public async Task<IEnumerable<BudgetCategoryType>> BudgetCategoryTypeGet(int? budgetCategoryTypeId = null, string budgetCategoryTypeName = null)
         {
             using (var conn = _context.CreateConnection())
             {
@@ -42,6 +42,11 @@ namespace FamilyBudget.Api.DAL
                 if (budgetCategoryTypeId.HasValue)
                 {
                     spParameters.Add("BudgetCategoryTypeId", budgetCategoryTypeId.Value);
+                }
+
+                if(!string.IsNullOrEmpty(budgetCategoryTypeName))
+                {
+                    spParameters.Add("BudgetCategoryTypeName", budgetCategoryTypeName);
                 }
 
                 var budgetCategoryType = await conn.QueryAsync<BudgetCategoryType>(spName, spParameters,

@@ -162,5 +162,7 @@
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Stored Procedures\dbo.pr_BudgetCategoryTypeInsert.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.pr_UserGet.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.pr_UserInsert.sql" />
   </ItemGroup>
 </Project>

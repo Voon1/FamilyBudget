@@ -12,12 +12,11 @@ namespace FamilyBudget.Api.BLL
         public FamilyBudgetService(IFamilyBudgetRepository familyBudgetRepository)
         {
             _familyBudgetRepository = familyBudgetRepository;
-
         }
 
-        public async Task<IEnumerable<BudgetCategoryType>> BudgetCategoryTypeGet(int? budgetCategoryTypeId)
+        public async Task<IEnumerable<BudgetCategoryType>> BudgetCategoryTypeGet(int? budgetCategoryTypeId, string? budgetCategoryTypeName)
         {
-            var type = _familyBudgetRepository.BudgetCategoryTypeGet(budgetCategoryTypeId);
+            var type = _familyBudgetRepository.BudgetCategoryTypeGet(budgetCategoryTypeId, budgetCategoryTypeName);
             return await type;
         }
 

@@ -1,5 +1,6 @@
 ﻿using FamilyBudget.Api.Interface;
 using FamilyBudget.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -17,12 +18,15 @@ namespace FamilyBudget.Api.Controllers
             this._Service = Service;
         }
 
+        [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme)]
         [HttpGet("BudgetCategoriesTypeGet", Name = "BudgetCategoryTypeGet")]
-        public async Task<IEnumerable<BudgetCategoryType>> BudgetCategoryTypeGet(int? budgetCategoryTypeId)
+        public async Task<IEnumerable<BudgetCategoryType>> BudgetCategoryTypeGet(int? budgetCategoryTypeId, string? budgetCategoryTypeName)
         {
-            return await _Service.BudgetCategoryTypeGet(budgetCategoryTypeId);
+            return await _Service.BudgetCategoryTypeGet(budgetCategoryTypeId, budgetCategoryTypeName);
         }
 
+
+        [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost("BudgetCategoriesTypeInsert", Name = "BudgetCategoryTypeInsert")]
         public async Task<int> BudgetCategoryTypeInsert(string budgetCategoryTypeName)
         {

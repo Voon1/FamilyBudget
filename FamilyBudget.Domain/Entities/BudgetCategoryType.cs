@@ -8,7 +8,6 @@ public class BudgetCategoryType
 {
     public int BudgetCategoryTypeId { get; set; }
 
-    [Required]
-    [StringLength(100)]
+  
     public string BudgetCategoryTypeName { get; set; }
 }
